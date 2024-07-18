@@ -5,10 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 
 public record PaymentRequestDTO(
 
-        @NotBlank(message = "Informe o id do carrinho de compras")
-        String idShoppingCart,
+                @NotBlank(message = "Informe o id do carrinho de compras") String idShoppingCart,
 
-        @Valid
-        CardRequestDTO card,
-        double amount
-) { }
+                @Valid CardRequestDTO card,
+
+                double amount) {
+}

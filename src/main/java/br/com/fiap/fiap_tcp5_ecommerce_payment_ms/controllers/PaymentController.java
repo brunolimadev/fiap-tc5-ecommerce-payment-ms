@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("payment")
+@RequestMapping("payments")
 public class PaymentController {
 
     ProcessPaymentService processPaymentService;
@@ -17,7 +17,7 @@ public class PaymentController {
     HistoryProcessService historyProcessService;
 
     public PaymentController(ProcessPaymentService processPaymentService,
-                             HistoryProcessService historyProcessService) {
+            HistoryProcessService historyProcessService) {
         this.processPaymentService = processPaymentService;
         this.historyProcessService = historyProcessService;
     }
