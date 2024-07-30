@@ -5,7 +5,7 @@ import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.enums.MessagesEnum;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.exceptions.PaymentException;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.model.dtos.CardRequestDTO;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.model.entities.ProcessPaymentEntity;
-import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.repositories.DadosCartaoRepository;
+import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.repositories.DataCardRepository;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.repositories.ProcessPaymentRepository;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.services.interfaces.CardDataService;
 import org.springframework.stereotype.Service;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class CardDataServiceImpl implements CardDataService {
 
-    private DadosCartaoRepository repository;
+    private DataCardRepository repository;
 
     private CardDataConverter converter;
 
     private ProcessPaymentRepository processPaymentRepository;
 
-    public CardDataServiceImpl(DadosCartaoRepository repository, CardDataConverter converter,
+    public CardDataServiceImpl(DataCardRepository repository, CardDataConverter converter,
                                ProcessPaymentRepository processamentoPagamentoRepository) {
         this.repository = repository;
         this.converter = converter;

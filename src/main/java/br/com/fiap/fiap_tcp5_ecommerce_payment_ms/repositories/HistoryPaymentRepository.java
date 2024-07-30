@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface HistoricoPagamentoRepository extends JpaRepository<HistoryPaymentEntity, String> {
+public interface HistoryPaymentRepository extends JpaRepository<HistoryPaymentEntity, String> {
 
     @Query(value = "SELECT h.idHistoryPayment FROM HistoryPaymentEntity h " +
             "WHERE h.statusHistoryEnum = PENDENTE AND h.dateTimeEndStage IS NULL ")

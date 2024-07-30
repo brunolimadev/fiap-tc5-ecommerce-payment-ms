@@ -6,7 +6,7 @@ import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.exceptions.PaymentException;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.model.dtos.PaymentResponseDTO;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.model.entities.HistoryPaymentEntity;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.model.entities.ProcessPaymentEntity;
-import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.repositories.HistoricoPagamentoRepository;
+import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.repositories.HistoryPaymentRepository;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.repositories.ProcessPaymentRepository;
 import br.com.fiap.fiap_tcp5_ecommerce_payment_ms.services.interfaces.HistoryProcessService;
 import jakarta.transaction.Transactional;
@@ -16,13 +16,13 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
-public class HistoricoProcessamentoServiceImpl implements HistoryProcessService {
+public class HistoryProcessServiceImpl implements HistoryProcessService {
 
-    private HistoricoPagamentoRepository repository;
+    private HistoryPaymentRepository repository;
 
     private ProcessPaymentRepository processamentoPagamentoRepository;
 
-    public HistoricoProcessamentoServiceImpl(HistoricoPagamentoRepository repository, ProcessPaymentRepository processamentoPagamentoRepository) {
+    public HistoryProcessServiceImpl(HistoryPaymentRepository repository, ProcessPaymentRepository processamentoPagamentoRepository) {
         this.repository = repository;
         this.processamentoPagamentoRepository = processamentoPagamentoRepository;
     }
@@ -113,7 +113,7 @@ public class HistoricoProcessamentoServiceImpl implements HistoryProcessService 
         }
     }
 
-    private List<PaymentResponseDTO> filtrarResultado(List<PaymentResponseDTO> history) {
+    List<PaymentResponseDTO> filtrarResultado(List<PaymentResponseDTO> history) {
 
         Optional<PaymentResponseDTO> filtro = history.stream()
                         .filter(p -> p.status().equals(StatusHistoricoEnum.APROVADO)
